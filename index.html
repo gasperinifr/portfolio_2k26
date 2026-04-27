@@ -1,96 +1,568 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Francisco | Portfólio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="shortcut icon" href="./public/icon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francisco Gasperini</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --surface: #16161f;
+    --border: #1e1e2e;
+    --accent: #7c6af7;
+    --accent2: #a78bfa;
+    --accent-glow: rgba(124,106,247,0.15);
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --white: #ffffff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; overflow-x:hidden; }
 
+  /* NAV */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1.2rem 3rem;
+    background:rgba(10,10,15,0.85); backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-logo { font-size:1.1rem; font-weight:700; letter-spacing:0.05em; color:var(--white); }
+  .nav-logo span { color:var(--accent); }
+  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:0.875rem; letter-spacing:0.03em; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--white); }
+
+  /* HERO */
+  #hero {
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; padding:6rem 2rem 4rem;
+  }
+  .hero-bg {
+    position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(124,106,247,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(167,139,250,0.05) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position:absolute; inset:0; pointer-events:none;
+    background-image: linear-gradient(rgba(124,106,247,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(124,106,247,0.03) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  }
+  .hero-content { position:relative; z-index:1; max-width:700px; text-align:center; }
+  .hero-tag {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--accent-glow); border:1px solid rgba(124,106,247,0.3); color:var(--accent2);
+    font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+    padding:0.4rem 1rem; border-radius:999px; margin-bottom:1.8rem;
+    animation:fadeUp 0.6s ease both;
+  }
+  .status-dot { width:7px; height:7px; border-radius:50%; background:#22c55e; animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+  .hero-name {
+    font-size:clamp(2.8rem,7vw,5rem); font-weight:800; line-height:1.05;
+    letter-spacing:-0.03em; color:var(--white);
+    animation:fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-name em {
+    font-style:normal;
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  }
+  .hero-sub { margin-top:1.2rem; color:var(--muted); font-size:1.05rem; line-height:1.7; animation:fadeUp 0.6s 0.2s ease both; }
+  .hero-ctas { margin-top:2.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; animation:fadeUp 0.6s 0.3s ease both; }
+  .btn-primary {
+    background:var(--accent); color:#fff; padding:0.8rem 1.8rem; border-radius:8px;
+    text-decoration:none; font-size:0.9rem; font-weight:600;
+    transition:opacity 0.2s,transform 0.2s; box-shadow:0 0 20px rgba(124,106,247,0.3);
+  }
+  .btn-primary:hover { opacity:0.85; transform:translateY(-1px); }
+  .btn-outline {
+    border:1px solid var(--border); color:var(--text); padding:0.8rem 1.8rem; border-radius:8px;
+    text-decoration:none; font-size:0.9rem; font-weight:500; transition:border-color 0.2s,color 0.2s,transform 0.2s;
+  }
+  .btn-outline:hover { border-color:var(--accent); color:var(--white); transform:translateY(-1px); }
+  .hero-socials { margin-top:3rem; display:flex; gap:1.5rem; justify-content:center; animation:fadeUp 0.6s 0.4s ease both; }
+  .hero-socials a { color:var(--muted); text-decoration:none; font-size:0.82rem; letter-spacing:0.04em; transition:color 0.2s; display:flex; align-items:center; gap:0.4rem; }
+  .hero-socials a:hover { color:var(--white); }
+  .scroll-hint { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:0.5rem; color:var(--muted); font-size:0.75rem; letter-spacing:0.08em; animation:fadeUp 0.6s 0.6s ease both; }
+  .scroll-line { width:1px; height:40px; background:linear-gradient(to bottom, var(--accent), transparent); animation:scrollPulse 2s ease-in-out infinite; }
+
+  /* SECTIONS */
+  section { padding:6rem 2rem; }
+  .container { max-width:960px; margin:0 auto; }
+  .section-label { display:flex; align-items:center; gap:0.8rem; margin-bottom:0.8rem; }
+  .section-label span { font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); font-weight:600; }
+  .section-label::after { content:''; flex:1; height:1px; background:linear-gradient(to right, var(--border), transparent); }
+  .section-title { font-size:clamp(1.8rem,4vw,2.5rem); font-weight:700; color:var(--white); line-height:1.2; letter-spacing:-0.02em; margin-bottom:1rem; }
+  .section-desc { color:var(--muted); font-size:0.95rem; line-height:1.7; max-width:580px; }
+
+  /* ABOUT */
+  #sobre { background:var(--bg2); }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; margin-top:3rem; }
+  .about-text p { color:var(--muted); line-height:1.8; font-size:0.95rem; margin-bottom:1rem; }
+  .about-text p strong { color:var(--text); }
+  .about-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.5rem; }
+  .tag { background:var(--surface); border:1px solid var(--border); color:var(--muted); font-size:0.78rem; padding:0.35rem 0.75rem; border-radius:999px; transition:border-color 0.2s,color 0.2s; }
+  .tag:hover { border-color:var(--accent); color:var(--accent2); }
+  .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .stat-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem; transition:border-color 0.3s; }
+  .stat-card:hover { border-color:var(--accent); }
+  .stat-num { font-size:2rem; font-weight:800; color:var(--white); line-height:1; }
+  .stat-num span { color:var(--accent); }
+  .stat-label { font-size:0.78rem; color:var(--muted); margin-top:0.4rem; text-transform:uppercase; letter-spacing:0.06em; }
+
+  /* SKILLS */
+  #habilidades { background:var(--bg); }
+  .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.2rem; margin-top:3rem; }
+  .skill-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.6rem; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s; cursor:default; }
+  .skill-card:hover { transform:translateY(-4px); border-color:var(--accent); box-shadow:0 8px 40px rgba(124,106,247,0.12); }
+  .skill-icon { font-size:1.6rem; margin-bottom:0.8rem; display:inline-block; }
+  .skill-name { font-size:0.95rem; font-weight:700; color:var(--white); margin-bottom:0.4rem; }
+  .skill-desc { font-size:0.8rem; color:var(--muted); line-height:1.6; margin-bottom:1rem; }
+  .skill-pills { display:flex; flex-wrap:wrap; gap:0.35rem; }
+  .pill { background:rgba(124,106,247,0.1); border:1px solid rgba(124,106,247,0.2); color:var(--accent2); font-size:0.7rem; padding:0.18rem 0.55rem; border-radius:999px; }
+
+  /* EXPERIENCE */
+  #experiencia { background:var(--bg2); }
+  .exp-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:2rem; margin-top:2rem; transition:border-color 0.3s; }
+  .exp-card:hover { border-color:rgba(124,106,247,0.3); }
+  .exp-header { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; margin-bottom:0.8rem; }
+  .exp-role { font-size:1rem; font-weight:700; color:var(--white); }
+  .exp-period { font-size:0.75rem; color:var(--accent); background:var(--accent-glow); border:1px solid rgba(124,106,247,0.2); padding:0.25rem 0.7rem; border-radius:999px; white-space:nowrap; }
+  .exp-org { font-size:0.82rem; color:var(--muted); margin-bottom:1rem; }
+  .exp-desc { font-size:0.85rem; color:var(--muted); line-height:1.7; }
+  .exp-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.2rem; }
+  .exp-tag { background:var(--bg); border:1px solid var(--border); color:var(--muted); font-size:0.7rem; padding:0.2rem 0.55rem; border-radius:999px; }
+
+  /* PROJECTS */
+  #projetos { background:var(--bg); }
+  .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:3rem; }
+  .project-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.8rem; display:flex; flex-direction:column; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s; position:relative; overflow:hidden; }
+  .project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(to right, var(--accent), var(--accent2)); opacity:0; transition:opacity 0.3s; }
+  .project-card:hover { transform:translateY(-4px); border-color:rgba(124,106,247,0.3); box-shadow:0 8px 40px rgba(124,106,247,0.1); }
+  .project-card:hover::before { opacity:1; }
+  .project-type { font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:0.8rem; }
+  .project-title { font-size:1.05rem; font-weight:700; color:var(--white); margin-bottom:0.6rem; }
+  .project-desc { font-size:0.83rem; color:var(--muted); line-height:1.6; flex:1; margin-bottom:1.5rem; }
+  .project-footer { display:flex; justify-content:space-between; align-items:center; }
+  .project-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+  .project-tag { background:var(--bg); border:1px solid var(--border); color:var(--muted); font-size:0.7rem; padding:0.15rem 0.5rem; border-radius:999px; }
+  .project-link { color:var(--accent); font-size:0.78rem; text-decoration:none; font-weight:600; white-space:nowrap; transition:color 0.2s; }
+  .project-link:hover { color:var(--white); }
+  .project-wip { display:flex; align-items:center; background:rgba(124,106,247,0.04); border:1px dashed rgba(124,106,247,0.2); border-radius:16px; padding:1.5rem 1.8rem; color:var(--muted); font-size:0.85rem; min-height:180px; justify-content:center; text-align:center; flex-direction:column; gap:0.8rem; }
+  .wip-icon { font-size:1.5rem; opacity:0.5; }
+
+  /* CERTS */
+  #certificados { background:var(--bg2); }
+  .certs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:3rem; }
+  .cert-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.4rem; transition:border-color 0.3s,transform 0.3s; }
+  .cert-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .cert-issuer { font-size:0.7rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.1em; font-weight:600; margin-bottom:0.4rem; }
+  .cert-name { font-size:0.88rem; font-weight:700; color:var(--white); margin-bottom:0.3rem; line-height:1.3; }
+  .cert-date { font-size:0.75rem; color:var(--muted); }
+  .cert-highlight { font-size:0.78rem; color:var(--accent2); margin-top:0.4rem; font-weight:500; }
+
+  /* FORMATION */
+  #formacao { background:var(--bg); }
+  .formation-list { margin-top:3rem; display:flex; flex-direction:column; }
+  .formation-item { display:flex; gap:2rem; align-items:flex-start; padding:2rem 0; border-bottom:1px solid var(--border); transition:padding-left 0.3s; }
+  .formation-item:hover { padding-left:0.8rem; }
+  .formation-item:last-child { border-bottom:none; }
+  .f-year { font-size:0.78rem; color:var(--accent); font-weight:600; letter-spacing:0.06em; min-width:90px; padding-top:0.15rem; }
+  .f-inst { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.3rem; }
+  .f-title { font-size:1rem; font-weight:700; color:var(--white); margin-bottom:0.4rem; }
+  .f-desc { font-size:0.83rem; color:var(--muted); line-height:1.6; }
+
+  /* IDIOMAS */
+  .lang-row { display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap; }
+  .lang-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.2rem 1.6rem; display:flex; align-items:center; gap:1rem; transition:border-color 0.3s; }
+  .lang-card:hover { border-color:var(--accent); }
+  .lang-flag { font-size:1.4rem; }
+  .lang-name { font-size:0.9rem; font-weight:700; color:var(--white); }
+  .lang-level { font-size:0.75rem; color:var(--muted); }
+  .lang-badge { font-size:0.7rem; color:var(--accent2); background:var(--accent-glow); border:1px solid rgba(124,106,247,0.2); padding:0.15rem 0.5rem; border-radius:999px; margin-top:0.2rem; display:inline-block; }
+
+  /* CONTACT */
+  #contato { background:var(--bg2); }
+  .contact-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:3rem; align-items:start; }
+  .contact-info p { color:var(--muted); font-size:0.9rem; line-height:1.7; margin-bottom:2rem; }
+  .contact-links { display:flex; flex-direction:column; gap:1rem; }
+  .contact-link { display:flex; align-items:center; gap:1rem; color:var(--muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s; }
+  .contact-link:hover { color:var(--white); }
+  .contact-link-icon { width:38px; height:38px; border-radius:8px; background:var(--surface); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:1rem; transition:border-color 0.2s; flex-shrink:0; }
+  .contact-link:hover .contact-link-icon { border-color:var(--accent); }
+  .contact-form { display:flex; flex-direction:column; gap:1rem; }
+  .form-group { display:flex; flex-direction:column; gap:0.4rem; }
+  .form-label { font-size:0.78rem; color:var(--muted); letter-spacing:0.05em; }
+  .form-input, .form-textarea { background:var(--surface); border:1px solid var(--border); color:var(--text); padding:0.75rem 1rem; border-radius:8px; font-size:0.875rem; outline:none; font-family:inherit; transition:border-color 0.2s; }
+  .form-input:focus, .form-textarea:focus { border-color:var(--accent); }
+  .form-textarea { resize:vertical; min-height:120px; }
+  .form-btn { background:var(--accent); color:#fff; border:none; cursor:pointer; padding:0.85rem 1.5rem; border-radius:8px; font-size:0.9rem; font-weight:600; font-family:inherit; transition:opacity 0.2s,transform 0.2s; box-shadow:0 0 20px rgba(124,106,247,0.25); }
+  .form-btn:hover { opacity:0.85; transform:translateY(-1px); }
+
+  /* FOOTER */
+  footer { padding:2rem 3rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.78rem; }
+  footer span { color:var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  @media(max-width:700px){
+    nav { padding:1rem 1.2rem; }
+    .nav-links { gap:1rem; font-size:0.78rem; }
+    .about-grid,.contact-wrapper { grid-template-columns:1fr; gap:2.5rem; }
+    footer { flex-direction:column; gap:0.5rem; text-align:center; }
+  }
+</style>
+</head>
 <body>
-  <nav>
-    <div class="nav-left">
-      <a href="https://github.com/jm1fenix" target="_blank">
-        <i class="fab fa-github"></i> GitHub
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">fg<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#habilidades">Skills</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#certificados">Certs</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><div class="status-dot"></div> Aberto a oportunidades</div>
+    <h1 class="hero-name">Francisco<br><em>Gasperini</em></h1>
+    <p class="hero-sub">
+      Gestão da Tecnologia da Informação · Full-Stack · Dados<br>
+      Construindo soluções onde gestão, código e dados se encontram.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projetos" class="btn-primary">Ver projetos</a>
+      <a href="public/curriculo_francisco.pdf" class="btn-outline" download>Baixar currículo</a>
+    </div>
+    <div class="hero-socials">
+      <a href="https://github.com/gasperinifr" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+        GitHub
       </a>
       <a href="https://br.linkedin.com/in/francisco-gasperini" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
       </a>
-      <a href="#" id="contate-me-btn">
-        <i class="fas fa-envelope"></i> Contate-me
-      </a>
-    </div>
-    <div class="nav-right">
-      <a href="Tescolar.html" target="_blank">
-        <i class="fas fa-graduation-cap"></i> Portfólio Técnico
+      <a href="mailto:franciscogasperini@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        E-mail
       </a>
     </div>
-  </nav>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div>scroll</div>
+</section>
 
-  <section class="sobremim" id="sobremim">
-    <div class="sobre-p">
-      <h2>Olá! Eu sou o Francisco 👋</h2>
-      <p>
-        Sou Técnico em Análise e Desenvolvimento de Sistemas pelo SENAI/SC 
-        e estou cursando Gestão da Tecnologia da Informação no IFSC - Instituto Federal de Santa Catarina. 
-        <br><br>Tenho grande interesse por tecnologia, leitura, escrita e
-        música. Estou me dedicando a desenvolver uma base sólida para atuar de
-        maneira completa em gestão e análise de dados.
-      </p>
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="section-label"><span>Sobre mim</span></div>
+    <h2 class="section-title">Quem sou eu</h2>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>Olá! Sou <strong>Francisco Gasperini</strong>, de Florianópolis/SC. Técnico em Desenvolvimento de Sistemas pelo <strong>SENAI/SC</strong> e atualmente cursando <strong>Gestão da Tecnologia da Informação no IFSC</strong>.</p>
+        <p>Tenho um perfil versátil que transita entre desenvolvimento web, banco de dados e análise de dados — áreas que se complementam na gestão moderna de tecnologia. Meu objetivo é atuar na interseção entre gestão e TI, otimizando fluxos e apoiando decisões estratégicas.</p>
+        <p>Fora do código, minha cabeça está em livros, música ou escrevendo. Acredito que uma boa comunicação é tão importante quanto um bom algoritmo.</p>
+        <div class="about-tags">
+          <span class="tag">Tecnologia</span>
+          <span class="tag">Leitura</span>
+          <span class="tag">Música</span>
+          <span class="tag">Escrita</span>
+          <span class="tag">Dados</span>
+          <span class="tag">UX/UI</span>
+          <span class="tag">Inglês B2</span>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">Anos em TI</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2<span>+</span></div>
+          <div class="stat-label">Formações</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">93<span>/100</span></div>
+          <div class="stat-label">TOEIC Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4<span>+</span></div>
+          <div class="stat-label">Certificações</div>
+        </div>
+      </div>
     </div>
-    <div>
-      <img class="francis" src="./public/francis1.png" alt="Foto de Francisco" />
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="container">
+    <div class="section-label"><span>Habilidades</span></div>
+    <h2 class="section-title">O que eu faço</h2>
+    <p class="section-desc">Áreas em que tenho investido tempo e estudo consistente desde 2022.</p>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <span class="skill-icon">🗄️</span>
+        <div class="skill-name">Banco de Dados & SQL</div>
+        <div class="skill-desc">Modelagem, consultas complexas, normalização e criação/manipulação de tabelas relacionais.</div>
+        <div class="skill-pills"><span class="pill">SQL</span><span class="pill">MySQL</span><span class="pill">Modelagem ER</span><span class="pill">Normalização</span></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🌐</span>
+        <div class="skill-name">Desenvolvimento Web</div>
+        <div class="skill-desc">Criação de interfaces modernas e responsivas com foco em experiência do usuário.</div>
+        <div class="skill-pills"><span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">Node.js</span></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🎨</span>
+        <div class="skill-name">UX / UI Design</div>
+        <div class="skill-desc">Prototipação, hierarquia visual e design de interfaces centradas no usuário.</div>
+        <div class="skill-pills"><span class="pill">Figma</span><span class="pill">Canva</span><span class="pill">Adobe</span><span class="pill">Protótipo</span></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">📊</span>
+        <div class="skill-name">Análise & Gestão</div>
+        <div class="skill-desc">Fluxogramas, casos de uso, engenharia de software e gestão de demandas e prioridades.</div>
+        <div class="skill-pills"><span class="pill">Fluxograma</span><span class="pill">Casos de Uso</span><span class="pill">Office</span><span class="pill">IA</span></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🔐</span>
+        <div class="skill-name">Segurança & Redes</div>
+        <div class="skill-desc">Noções de cibersegurança, boas práticas e fundamentos de redes de computadores.</div>
+        <div class="skill-pills"><span class="pill">Cybersecurity</span><span class="pill">CISCO</span><span class="pill">Python</span></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🤝</span>
+        <div class="skill-name">Soft Skills</div>
+        <div class="skill-desc">Comunicação clara, organização, suporte administrativo e gestão de cronogramas em equipe.</div>
+        <div class="skill-pills"><span class="pill">Comunicação</span><span class="pill">Organização</span><span class="pill">Equipe</span></div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="curriculo" style="text-align: center;">
-    <h2>📄 Baixe meu currículo</h2>
-    <a href="./public/curriculo_francisco.pdf" download class="button">Download</a>
-  </section>
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+  <div class="container">
+    <div class="section-label"><span>Experiência</span></div>
+    <h2 class="section-title">Por onde passei</h2>
+    <div class="reveal">
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Bolsista — Organização da SNCT 2025</div>
+            <div class="exp-org">Instituto Federal de Santa Catarina (IFSC) · Florianópolis, SC</div>
+          </div>
+          <div class="exp-period">Set 2025 – Dez 2025</div>
+        </div>
+        <div class="exp-desc">
+          Suporte à coordenação da Semana Nacional de Ciência e Tecnologia 2025 com foco em organização e controle administrativo. Atuação em planejamento de atividades, gestão de cronograma, controle de inscrições, alocação de recursos, comunicação com equipes internas, registro de demandas e acompanhamento de entregas.
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag">Gestão de Projetos</span>
+          <span class="exp-tag">Planejamento</span>
+          <span class="exp-tag">Comunicação</span>
+          <span class="exp-tag">Controle Administrativo</span>
+          <span class="exp-tag">Trabalho em Equipe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="modal" id="modal-contato">
-    <div class="modal-content">
-      <span class="close" id="fechar-modal">&times;</span>
-      <h2>Entre em Contato</h2>
-      <form id="form-contato" action="https://formspree.io/f/mldjvbqo" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required />
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="container">
+    <div class="section-label"><span>Projetos</span></div>
+    <h2 class="section-title">O que já construí</h2>
+    <p class="section-desc">Projetos desenvolvidos durante minha formação. Em constante expansão.</p>
+    <div class="projects-grid reveal">
+      <div class="project-card">
+        <div class="project-type">Projeto em Equipe · 2024</div>
+        <div class="project-title">EcoPraia</div>
+        <div class="project-desc">Aplicação web desenvolvida em equipe para conscientização sobre coleta de lixo nas praias de Florianópolis/SC. Projeto de Situação de Aprendizagem do Técnico em ADS.</div>
+        <div class="project-footer">
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JS</span></div>
+          <a href="https://github.com/leiticiasf/EcoPraia" target="_blank" class="project-link">Ver →</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Portfólio Técnico · 2022–2024</div>
+        <div class="project-title">Portfólio Escolar</div>
+        <div class="project-desc">Registro de atividades e projetos desenvolvidos ao longo do Técnico em ADS. Inclui trabalhos em BD, Modelagem de Sistemas, Programação e Desenvolvimento Web.</div>
+        <div class="project-footer">
+          <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">Portfólio</span></div>
+          <a href="https://gasperinifr.github.io/portfolio_2k26/Tescolar.html" target="_blank" class="project-link">Ver →</a>
+        </div>
+      </div>
+      <div class="project-wip">
+        <div class="wip-icon">🚧</div>
+        <div><strong style="color:var(--text)">Em breve</strong><br>Novos projetos a caminho.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+<!-- CERTIFICADOS -->
+<section id="certificados">
+  <div class="container">
+    <div class="section-label"><span>Certificados</span></div>
+    <h2 class="section-title">Certificações</h2>
+    <div class="certs-grid reveal">
+      <div class="cert-card">
+        <div class="cert-issuer">ETS Global</div>
+        <div class="cert-name">TOEIC Bridge — Listening & Reading</div>
+        <div class="cert-date">Maio 2024</div>
+        <div class="cert-highlight">93 / 100 pts · Inglês B2</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">CISCO Networking Academy</div>
+        <div class="cert-name">Python Essentials 1</div>
+        <div class="cert-date">Maio 2023</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">CISCO Networking Academy</div>
+        <div class="cert-name">Introduction to Cybersecurity</div>
+        <div class="cert-date">Março 2023</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Cubos Academy</div>
+        <div class="cert-name">Minicurso de UX/UI Design</div>
+        <div class="cert-date">Novembro 2023</div>
+      </div>
+    </div>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+    <div class="section-label" style="margin-top:3rem"><span>Idiomas</span></div>
+    <div class="lang-row reveal">
+      <div class="lang-card">
+        <div class="lang-flag">🇧🇷</div>
+        <div>
+          <div class="lang-name">Português</div>
+          <div class="lang-level">Nativo</div>
+        </div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag">🇺🇸</div>
+        <div>
+          <div class="lang-name">Inglês</div>
+          <div class="lang-level">Intermediário Avançado</div>
+          <div class="lang-badge">B2 · TOEIC Certificado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <button type="submit" class="button" id="btn-enviar">Enviar</button>
+<!-- FORMAÇÃO -->
+<section id="formacao">
+  <div class="container">
+    <div class="section-label"><span>Formação</span></div>
+    <h2 class="section-title">Minha trajetória</h2>
+    <div class="formation-list reveal">
+      <div class="formation-item">
+        <div class="f-year">2025 – atual</div>
+        <div class="f-content">
+          <div class="f-inst">IFSC — Instituto Federal de Santa Catarina</div>
+          <div class="f-title">Curso Superior em Gestão da Tecnologia da Informação</div>
+          <div class="f-desc">Foco em gestão estratégica de TI, processos, infraestrutura e análise de dados.</div>
+        </div>
+      </div>
+      <div class="formation-item">
+        <div class="f-year">2022 – 2024</div>
+        <div class="f-content">
+          <div class="f-inst">SENAI/SC — Florianópolis</div>
+          <div class="f-title">Técnico em Desenvolvimento de Sistemas (Integrado ao EM)</div>
+          <div class="f-desc">Formação técnica em desenvolvimento de software, banco de dados, modelagem de sistemas e programação web.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+    <div class="section-label"><span>Contato</span></div>
+    <h2 class="section-title">Vamos conversar</h2>
+    <div class="contact-wrapper reveal">
+      <div class="contact-info">
+        <p>Estou aberto a oportunidades, colaborações e conversas sobre tecnologia, dados e desenvolvimento. Pode entrar em contato por qualquer canal.</p>
+        <div class="contact-links">
+          <a href="mailto:franciscogasperini@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            franciscogasperini@gmail.com
+          </a>
+          <a href="https://br.linkedin.com/in/francisco-gasperini" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+            linkedin.com/in/francisco-gasperini
+          </a>
+          <a href="https://github.com/gasperinifr" target="_blank" class="contact-link">
+            <div class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg></div>
+            github.com/gasperinifr
+          </a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Nome</label>
+          <input type="text" class="form-input" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input type="email" class="form-input" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mensagem</label>
+          <textarea class="form-textarea" placeholder="Sua mensagem..." required></textarea>
+        </div>
+        <button type="submit" class="form-btn">Enviar mensagem</button>
       </form>
     </div>
   </div>
+</section>
 
-  <script>
-    const modal = document.getElementById("modal-contato");
-    const btn = document.getElementById("contate-me-btn");
-    const span = document.getElementById("fechar-modal");
+<!-- FOOTER -->
+<footer>
+  <div>Francisco <span>Gasperini</span> · Florianópolis, SC</div>
+  <div>franciscogasperini@gmail.com</div>
+</footer>
 
-    btn.addEventListener("click", function (event) {
-      event.preventDefault();
-      modal.classList.add("show");
-    });
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => io.observe(r));
 
-    span.addEventListener("click", function () {
-      modal.classList.remove("show");
-    });
+  document.querySelectorAll('.skills-grid,.projects-grid,.about-stats,.certs-grid').forEach(grid => {
+    [...grid.children].forEach((child,i) => { child.style.transitionDelay = `${i*0.07}s`; });
+  });
 
-    window.addEventListener("click", function (event) {
-      if (event.target === modal) {
-        modal.classList.remove("show");
-      }
-    });
-  </script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-btn');
+    btn.textContent = '✓ Enviado!';
+    btn.style.background = '#22c55e';
+    setTimeout(() => { btn.textContent = 'Enviar mensagem'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+</script>
 </body>
-
 </html>
