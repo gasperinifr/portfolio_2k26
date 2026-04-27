@@ -520,7 +520,7 @@
           </a>
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/mgorjabl" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label class="form-label">Nome</label>
           <input type="text" class="form-input" placeholder="Seu nome" required>
@@ -556,12 +556,31 @@
     [...grid.children].forEach((child,i) => { child.style.transitionDelay = `${i*0.07}s`; });
   });
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-btn');
-    btn.textContent = '✓ Enviado!';
-    btn.style.background = '#22c55e';
-    setTimeout(() => { btn.textContent = 'Enviar mensagem'; btn.style.background = ''; e.target.reset(); }, 3000);
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(e.target.action, {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        btn.textContent = '✓ Enviado!';
+        btn.style.background = '#22c55e';
+        e.target.reset();
+      } else {
+        btn.textContent = 'Erro ao enviar';
+        btn.style.background = '#ef4444';
+      }
+    } catch {
+      btn.textContent = 'Erro ao enviar';
+      btn.style.background = '#ef4444';
+    }
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = 'Enviar mensagem'; btn.style.background = ''; }, 4000);
   }
 </script>
 </body>
