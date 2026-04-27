@@ -1,9 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "Tescolar.html", "use": "@vercel/static" }
+    { "src": "index.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/Tescolar.html" }
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
