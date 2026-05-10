@@ -153,8 +153,66 @@
   .project-tag { background:var(--bg); border:1px solid var(--border); color:var(--muted); font-size:0.7rem; padding:0.15rem 0.5rem; border-radius:999px; }
   .project-link { color:var(--accent); font-size:0.78rem; text-decoration:none; font-weight:600; white-space:nowrap; transition:color 0.2s; }
   .project-link:hover { color:var(--white); }
-  .project-wip { display:flex; align-items:center; background:rgba(124,106,247,0.04); border:1px dashed rgba(124,106,247,0.2); border-radius:16px; padding:1.5rem 1.8rem; color:var(--muted); font-size:0.85rem; min-height:180px; justify-content:center; text-align:center; flex-direction:column; gap:0.8rem; }
-  .wip-icon { font-size:1.5rem; opacity:0.5; }
+  .project-links { display:flex; gap:1rem; align-items:center; }
+
+  /* Card destaque do Lorekeeper */
+  .project-card.featured {
+    grid-column: 1 / -1;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    border-color: rgba(124,106,247,0.25);
+    background: linear-gradient(135deg, #16161f 0%, #1a1825 100%);
+    padding: 2.2rem;
+  }
+  .project-card.featured::before { opacity: 0.6; }
+  .project-card.featured:hover { border-color: rgba(124,106,247,0.5); box-shadow: 0 12px 60px rgba(124,106,247,0.15); }
+  .project-card.featured:hover::before { opacity: 1; }
+  .featured-left { display:flex; flex-direction:column; }
+  .featured-right { display:flex; flex-direction:column; gap:0.8rem; }
+  .featured-badge {
+    display:inline-flex; align-items:center; gap:0.4rem;
+    font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:#22c55e; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.25);
+    padding:0.25rem 0.7rem; border-radius:999px; margin-bottom:0.8rem;
+    width:fit-content;
+  }
+  .featured-badge-dot { width:5px; height:5px; border-radius:50%; background:#22c55e; animation:pulse 2s infinite; }
+  .featured-title { font-size:1.5rem; font-weight:800; color:var(--white); margin-bottom:0.5rem; letter-spacing:-0.02em; }
+  .featured-desc { font-size:0.875rem; color:var(--muted); line-height:1.7; margin-bottom:1.5rem; flex:1; }
+  .featured-footer { display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+  .featured-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+  .featured-tag { background:var(--bg); border:1px solid var(--border); color:var(--muted); font-size:0.7rem; padding:0.15rem 0.5rem; border-radius:999px; }
+  .featured-link-primary {
+    display:inline-flex; align-items:center; gap:0.4rem;
+    background:var(--accent); color:#fff; padding:0.5rem 1.1rem; border-radius:7px;
+    text-decoration:none; font-size:0.8rem; font-weight:600;
+    transition:opacity 0.2s,transform 0.2s; white-space:nowrap;
+  }
+  .featured-link-primary:hover { opacity:0.85; transform:translateY(-1px); }
+  .featured-link-secondary {
+    color:var(--muted); font-size:0.78rem; text-decoration:none; font-weight:500;
+    transition:color 0.2s; white-space:nowrap;
+  }
+  .featured-link-secondary:hover { color:var(--white); }
+  .featured-stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; }
+  .featured-stat {
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
+    border-radius:10px; padding:0.9rem 1rem;
+  }
+  .featured-stat-num { font-size:1.3rem; font-weight:800; color:var(--white); line-height:1; }
+  .featured-stat-num span { color:var(--accent2); font-size:0.9rem; }
+  .featured-stat-label { font-size:0.7rem; color:var(--muted); margin-top:0.3rem; text-transform:uppercase; letter-spacing:0.06em; }
+  .featured-highlights { display:flex; flex-direction:column; gap:0.5rem; margin-top:0.4rem; }
+  .featured-highlight {
+    display:flex; align-items:flex-start; gap:0.6rem;
+    font-size:0.8rem; color:var(--muted); line-height:1.5;
+  }
+  .featured-highlight-dot {
+    width:4px; height:4px; border-radius:50%; background:var(--accent2);
+    margin-top:0.45rem; flex-shrink:0; opacity:0.7;
+  }
 
   /* CERTS */
   #certificados { background:var(--bg2); }
@@ -219,6 +277,8 @@
     .nav-links { gap:1rem; font-size:0.78rem; }
     .about-grid,.contact-wrapper { grid-template-columns:1fr; gap:2.5rem; }
     footer { flex-direction:column; gap:0.5rem; text-align:center; }
+    .project-card.featured { grid-template-columns:1fr; }
+    .featured-stat-grid { grid-template-columns:repeat(2,1fr); }
   }
 </style>
 </head>
@@ -395,6 +455,86 @@
     <h2 class="section-title">O que já construí</h2>
     <p class="section-desc">Projetos desenvolvidos durante minha formação. Em constante expansão.</p>
     <div class="projects-grid reveal">
+
+      <!-- LOREKEEPER — card destaque, ocupa linha inteira -->
+      <div class="project-card featured">
+        <div class="featured-left">
+          <div class="featured-badge">
+            <div class="featured-badge-dot"></div>
+            Em produção · Projeto solo
+          </div>
+          <div class="project-type">Full-Stack · 2025</div>
+          <div class="featured-title">Lorekeeper</div>
+          <div class="featured-desc">
+            Plataforma completa para organização de campanhas de RPG de mesa, destinada para mestres e jogadores. Centraliza personagens, 
+            NPCs, locais, itens, eventos e narrativa em um único sistema, com IA generativa integrada para auxílio na criação e organização 
+            de conteúdo, gráfico de relações entre entidades do mundo, chat em tempo real, linha do tempo de eventos e importação de conteúdo
+             oficial de D&D 5e via integração com 5etools.
+          </div>
+          <div class="featured-footer">
+            <div class="featured-tags">
+              <span class="featured-tag">React</span>
+              <span class="featured-tag">TypeScript</span>
+              <span class="featured-tag">Fastify</span>
+              <span class="featured-tag">PostgreSQL</span>
+              <span class="featured-tag">AWS S3</span>
+              <span class="featured-tag">Fly.io</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center; margin-top:1.4rem;">
+            <a href="https://lorekeeperfg.vercel.app/dashboard" target="_blank" class="featured-link-primary">
+              Ver demo →
+            </a>
+            <a href="https://github.com/gasperinifr/lorekeeper" target="_blank" class="featured-link-secondary">
+              Repositório ↗
+            </a>
+          </div>
+        </div>
+        <div class="featured-right">
+          <div class="featured-stat-grid">
+            <div class="featured-stat">
+              <div class="featured-stat-num">10<span>+</span></div>
+              <div class="featured-stat-label">Tipos de entidade</div>
+            </div>
+            <div class="featured-stat">
+              <div class="featured-stat-num">2</div>
+              <div class="featured-stat-label">Agentes de IA</div>
+            </div>
+            <div class="featured-stat">
+              <div class="featured-stat-num">Full<span>-Stack</span></div>
+              <div class="featured-stat-label">Frontend + Backend</div>
+            </div>
+            <div class="featured-stat">
+              <div class="featured-stat-num">Solo</div>
+              <div class="featured-stat-label">Projeto individual</div>
+            </div>
+          </div>
+          <div class="featured-highlights">
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              IA generativa com fallback automático entre modelos, sem interrupção de serviço para o usuário
+            </div>
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              Gráfico de relações interativo conectando todas as entidades da campanha
+            </div>
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              Crônica de eventos com propagação de estado e relações das entidades afetadas, para manter o mundo sempre atualizado e coerente
+            </div>
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              Chat em tempo real e diário privado para jogadores e mestres
+            </div>
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              Deploy em produção: Vercel + Node.js + Supabase + AWS S3 + Fly.io
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EcoPraia -->
       <div class="project-card">
         <div class="project-type">Projeto em Equipe · 2024</div>
         <div class="project-title">EcoPraia</div>
@@ -404,6 +544,8 @@
           <a href="https://github.com/leiticiasf/EcoPraia" target="_blank" class="project-link">Ver →</a>
         </div>
       </div>
+
+      <!-- Portfólio Escolar -->
       <div class="project-card">
         <div class="project-type">Portfólio Técnico · 2022–2024</div>
         <div class="project-title">Portfólio Escolar</div>
@@ -413,10 +555,7 @@
           <a href="https://gasperinifr.github.io/portfolio_2k26/Tescolar.html" target="_blank" class="project-link">Ver →</a>
         </div>
       </div>
-      <div class="project-wip">
-        <div class="wip-icon">🚧</div>
-        <div><strong style="color:var(--text)">Em breve</strong><br>Novos projetos a caminho.</div>
-      </div>
+
     </div>
   </div>
 </section>
