@@ -115,16 +115,42 @@
   .stat-num span { color:var(--accent); }
   .stat-label { font-size:0.78rem; color:var(--muted); margin-top:0.4rem; text-transform:uppercase; letter-spacing:0.06em; }
 
-  /* SKILLS */
+  /* SKILLS — updated */
   #habilidades { background:var(--bg); }
-  .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.2rem; margin-top:3rem; }
-  .skill-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.6rem; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s; cursor:default; }
-  .skill-card:hover { transform:translateY(-4px); border-color:var(--accent); box-shadow:0 8px 40px rgba(124,106,247,0.12); }
-  .skill-icon { font-size:1.6rem; margin-bottom:0.8rem; display:inline-block; }
-  .skill-name { font-size:0.95rem; font-weight:700; color:var(--white); margin-bottom:0.4rem; }
-  .skill-desc { font-size:0.8rem; color:var(--muted); line-height:1.6; margin-bottom:1rem; }
-  .skill-pills { display:flex; flex-wrap:wrap; gap:0.35rem; }
-  .pill { background:rgba(124,106,247,0.1); border:1px solid rgba(124,106,247,0.2); color:var(--accent2); font-size:0.7rem; padding:0.18rem 0.55rem; border-radius:999px; }
+  .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.4rem; margin-top:3rem; }
+  .skill-card { background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:2rem; display:flex; flex-direction:column; gap:1.1rem; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s; cursor:default; }
+  .skill-card:hover { transform:translateY(-5px); border-color:var(--accent); box-shadow:0 10px 48px rgba(124,106,247,0.13); }
+  .skill-header { display:flex; align-items:center; gap:0.75rem; }
+  .skill-icon { font-size:1.5rem; line-height:1; }
+  .skill-name { font-size:1.05rem; font-weight:700; color:var(--white); }
+  .skill-desc { font-size:0.83rem; color:var(--muted); line-height:1.65; }
+  .skill-pills { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:auto; padding-top:0.4rem; }
+  .pill { display:inline-flex; align-items:center; gap:0.45rem; font-size:0.8rem; font-weight:600; letter-spacing:0.01em; padding:0.42rem 0.85rem; border-radius:7px; border:1px solid; white-space:nowrap; line-height:1; }
+  .pill svg { width:14px; height:14px; flex-shrink:0; display:block; }
+  .pill-react    { background:#20232a; color:#61dafb; border-color:#61dafb30; }
+  .pill-ts       { background:#1a2a3a; color:#3178c6; border-color:#3178c630; }
+  .pill-vite     { background:#1c1836; color:#bd34fe; border-color:#bd34fe30; }
+  .pill-tailwind { background:#0d1f2d; color:#38bdf8; border-color:#38bdf830; }
+  .pill-fastify  { background:#1a1a1a; color:#d4d4d4; border-color:#ffffff18; }
+  .pill-node     { background:#0d1f0d; color:#68a063; border-color:#68a06330; }
+  .pill-jwt      { background:#120d1a; color:#d63aff; border-color:#d63aff30; }
+  .pill-zustand  { background:#141414; color:#c9c9c9; border-color:#ffffff18; }
+  .pill-tanstack { background:#1a0a0a; color:#ff4154; border-color:#ff415430; }
+  .pill-neutral  { background:rgba(124,106,247,0.1); border-color:rgba(124,106,247,0.2); color:var(--accent2); }
+  .pill-postgres { background:#0d1a2e; color:#5b85e8; border-color:#4169e130; }
+  .pill-supabase { background:#0a1a10; color:#3ecf8e; border-color:#3ecf8e30; }
+  .pill-aws      { background:#1a1200; color:#ff9900; border-color:#ff990030; }
+  .pill-vercel   { background:#1a1a1a; color:#d4d4d4; border-color:#ffffff18; }
+  .pill-flyio    { background:#0d0a1f; color:#9f7aea; border-color:#8b5cf630; }
+  .pill-github   { background:#111; color:#c9c9c9; border-color:#ffffff18; }
+  .pill-groq     { background:#0d0d0d; color:#aaaaaa; border-color:#aaaaaa20; }
+  .pill-llm      { background:#16111f; color:#a78bfa; border-color:#a78bfa30; }
+  .pill-html     { background:#1f0e05; color:#e44d26; border-color:#e44d2630; }
+  .pill-css      { background:#0a1220; color:#4b78e0; border-color:#2965f130; }
+  .pill-js       { background:#1a1800; color:#e8d44d; border-color:#f0db4f30; }
+  .pill-figma    { background:#1a0d10; color:#f24e1e; border-color:#f24e1e30; }
+  .pill-cisco    { background:#001224; color:#1ba0d7; border-color:#1ba0d730; }
+  .pill-python   { background:#0a1520; color:#4b8bbe; border-color:#4b8bbe30; }
 
   /* EXPERIENCE */
   #experiencia { background:var(--bg2); }
@@ -339,7 +365,7 @@
       <div class="about-text">
         <p>Olá! Sou <strong>Francisco Gasperini</strong>, de Florianópolis/SC. Técnico em Desenvolvimento de Sistemas pelo <strong>SENAI/SC</strong> e atualmente cursando <strong>Gestão da Tecnologia da Informação no IFSC</strong>.</p>
         <p>Tenho um perfil versátil que transita entre desenvolvimento web, banco de dados e análise de dados — áreas que se complementam na gestão moderna de tecnologia. Meu objetivo é atuar na interseção entre gestão e TI, otimizando fluxos e apoiando decisões estratégicas.</p>
-        <p>Fora do código, minha cabeça está em livros, música ou escrevendo. Acredito que uma boa comunicação é tão importante quanto um bom algoritmo.</p>
+        <p>Fora do código, minha cabeça está em livros, música ou escrevendo. Acredito que uma boa comunicação e cultura são tão importantes quanto um bom algoritmo.</p>
         <div class="about-tags">
           <span class="tag">Tecnologia</span>
           <span class="tag">Leitura</span>
@@ -376,45 +402,105 @@
 <section id="habilidades">
   <div class="container">
     <div class="section-label"><span>Habilidades</span></div>
-    <h2 class="section-title">O que eu faço</h2>
-    <p class="section-desc">Áreas em que tenho investido tempo e estudo consistente desde 2022.</p>
+    <h2 class="section-title">O que eu construo</h2>
+    <p class="section-desc">De banco de dados relacional a IA generativa em produção — áreas onde tenho projetos reais rodando.</p>
     <div class="skills-grid reveal">
+
+      <!-- Full-Stack -->
       <div class="skill-card">
-        <span class="skill-icon">🗄️</span>
-        <div class="skill-name">Banco de Dados & SQL</div>
-        <div class="skill-desc">Modelagem, consultas complexas, normalização e criação/manipulação de tabelas relacionais.</div>
-        <div class="skill-pills"><span class="pill">SQL</span><span class="pill">MySQL</span><span class="pill">Modelagem ER</span><span class="pill">Normalização</span></div>
+        <div class="skill-header">
+          <span class="skill-icon">⚙️</span>
+          <div class="skill-name">Desenvolvimento Full-Stack</div>
+        </div>
+        <div class="skill-desc">React + TypeScript no frontend, Fastify no backend. Autenticação JWT, estado global com Zustand e fetching com TanStack Query. Projeto em produção.</div>
+        <div class="skill-pills">
+          <span class="pill pill-react"><svg viewBox="0 0 24 24" fill="#61dafb"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.096-.278zm-.005 1.09c.347 0 .62.07.798.182 1.07.617 1.383 2.852.737 5.716L13.148 8.74c-.468-.894-.95-1.738-1.443-2.517 1.478-1.342 2.876-2.02 3.964-2.02zM5.12 3.186c1.09 0 2.49.68 3.967 2.02-.492.78-.974 1.623-1.44 2.516L3.5 9.167c-.646-2.862-.334-5.09.74-5.707a1.1 1.1 0 0 1 .882-.273zM12 8.394c.392.577.78 1.19 1.159 1.846.38.655.73 1.314 1.05 1.968a26.92 26.92 0 0 1-1.05 1.967c-.38.656-.767 1.268-1.16 1.847a26.943 26.943 0 0 1-2.209-3.815A26.88 26.88 0 0 1 12 8.394zm-4.83.522 3.604 1.058a25.48 25.48 0 0 0 0 4.058l-3.603 1.06C3.95 14.004 2 13.004 2 12.004c0-1 1.95-2 5.17-3.088zm9.66 0C20.05 10.003 22 11.003 22 12.003c0 1-1.95 2-5.17 3.088L13.227 14.03a25.48 25.48 0 0 0 0-4.058l3.604-1.057zM4.717 16.07l4.096 1.2c.332.844.688 1.65 1.063 2.4C8.39 21.144 6.986 21.826 5.9 21.826c-.345 0-.618-.07-.797-.182-1.07-.617-1.385-2.853-.738-5.718zm14.568 0c.646 2.863.334 5.09-.738 5.707a1.1 1.1 0 0 1-.882.273c-1.087 0-2.488-.68-3.966-2.02.374-.75.73-1.556 1.063-2.4l4.096-1.2-.573.357zM8.723 17.7l3.277.96 3.277-.96a27.2 27.2 0 0 1-1.443 2.516c-1.478 1.343-2.876 2.02-3.964 2.02h-.003c-1.088 0-2.487-.677-3.965-2.02A27.2 27.2 0 0 1 8.723 17.7z"/></svg>React</span>
+          <span class="pill pill-ts"><svg viewBox="0 0 24 24" fill="#3178c6"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.232c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>TypeScript</span>
+          <span class="pill pill-vite"><svg viewBox="0 0 24 24" fill="#bd34fe"><path d="M12 0L1.605 21.026h3.01L12 5.29l7.385 15.736h3.01L12 0zm0 6.951L5.87 19.045h2.367L12 11.01l3.763 8.035h2.367L12 6.951z"/></svg>Vite</span>
+          <span class="pill pill-tailwind"><svg viewBox="0 0 24 24" fill="#38bdf8"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>Tailwind</span>
+          <span class="pill pill-fastify"><svg viewBox="0 0 24 24" fill="#d4d4d4"><path d="M3.146 11.14C2.482 10.07 2 8.763 2 7.5 2 4.467 4.467 2 7.5 2c1.547 0 2.94.625 3.953 1.635L13 6h2l1.5-1.5L18 6l-1.5 1.5L18 9l-3 3-1.5-1.5L12 12l-1.06-1.06A5.476 5.476 0 0 1 7.5 13C4.467 13 2 10.533 2 7.5c0 .547.08 1.076.228 1.576L3.146 11.14zM7.5 4a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm9.5 7l1 1-7 7-1-1 7-7z"/></svg>Fastify</span>
+          <span class="pill pill-node"><svg viewBox="0 0 24 24" fill="#68a063"><path d="M11.998.016C5.37.016 0 5.385 0 12.014c0 6.627 5.37 11.998 11.998 11.998 6.628 0 12.002-5.37 12.002-11.998C24 5.385 18.626.016 11.998.016zm4.718 16.001a.668.668 0 0 1-.668.668c-.185 0-.36-.077-.484-.21l-3.575-3.93-3.573 3.93a.664.664 0 0 1-.484.21.668.668 0 0 1-.668-.668V8.649c0-.369.3-.668.668-.668.37 0 .668.299.668.668v5.36l3.389-3.73a.662.662 0 0 1 .498-.226c.19 0 .365.08.491.22l3.389 3.73v-5.36c0-.369.3-.668.668-.668.37 0 .668.299.668.668l.013 7.378z"/></svg>Node.js</span>
+          <span class="pill pill-jwt"><svg viewBox="0 0 24 24" fill="#d63aff"><path d="M10.337 2.126L9.005 6.68H6.344l2.26 1.597-.87 3.458 2.603-1.71 2.604 1.71-.87-3.458 2.26-1.597h-2.66L10.337 2.126zM10.337 21.874l-1.332-4.555H6.344l2.26-1.597-.87-3.458 2.603 1.71 2.604-1.71-.87 3.458 2.26 1.597h-2.66l-1.334 4.555zM2.126 13.663L6.68 14.995V17.656l1.597-2.26 3.458.87-1.71-2.603 1.71-2.604-3.458.87-1.597-2.26v2.66L2.126 13.663zM21.874 10.337l-4.555 1.332V14.33l-1.597-2.26-3.458.87 1.71-2.603-1.71-2.604 3.458.87 1.597-2.26v2.66l4.555 1.334z"/></svg>JWT</span>
+          <span class="pill pill-zustand"><svg viewBox="0 0 24 24" fill="#c9c9c9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>Zustand</span>
+          <span class="pill pill-tanstack"><svg viewBox="0 0 24 24" fill="#ff4154"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm0 10c-2.67 0-5.04-1.37-6.4-3.44.03-2.12 4.27-3.29 6.4-3.29s6.37 1.17 6.4 3.29C17.04 14.63 14.67 16 12 16z"/></svg>TanStack Query</span>
+        </div>
       </div>
+
+      <!-- Banco de Dados -->
       <div class="skill-card">
-        <span class="skill-icon">🌐</span>
-        <div class="skill-name">Desenvolvimento Web</div>
-        <div class="skill-desc">Criação de interfaces modernas e responsivas com foco em experiência do usuário.</div>
-        <div class="skill-pills"><span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">Node.js</span></div>
+        <div class="skill-header">
+          <span class="skill-icon">🗄️</span>
+          <div class="skill-name">Banco de Dados & SQL</div>
+        </div>
+        <div class="skill-desc">Modelagem relacional, normalização, consultas complexas com JOINs e subqueries, design de schema. PostgreSQL em produção via Supabase.</div>
+        <div class="skill-pills">
+          <span class="pill pill-postgres"><svg viewBox="0 0 24 24" fill="#5b85e8"><path d="M17.128 0a10.134 10.134 0 0 0-2.755.403l-.063.02A10.922 10.922 0 0 0 12.6.258C11.422.238 10.41.524 9.594 1 8.79.721 7.122.24 5.364.426 4.395.523 3.653.92 3.033 1.5c-.19-.048-.577-.137-.627-.137a.3.3 0 0 0-.195.07C1.7 1.806 1.7 2.763 1.885 3.24c-.604.656-.958 1.54-.954 2.566-.016.43.02.908.127 1.416.427 1.996 1.583 3.475 3.067 4.42.08.84.12 1.682.165 2.521.055 1.004.235 1.643.778 2.137.482.438 1.154.647 2.033.707.197.667.48 1.308.922 1.74.328.318.867.626 1.535.404.388-.13.826-.47 1.278-.49.453.02.892.36 1.278.49.669.222 1.208-.086 1.536-.404.441-.432.724-1.073.922-1.74.879-.06 1.55-.27 2.033-.707.543-.495.723-1.133.778-2.137.044-.84.084-1.68.164-2.52 1.482-.944 2.639-2.42 3.068-4.418a7.95 7.95 0 0 0 .127-1.416c.003-1.1-.395-2.02-1.039-2.687.109-.285.129-1.02-.615-1.525a.299.299 0 0 0-.168-.052c-.07 0-.192.027-.37.08A4.517 4.517 0 0 0 20.96 1.5c-.621-.58-1.36-.978-2.33-1.074A10.048 10.048 0 0 0 17.128 0z"/></svg>PostgreSQL</span>
+          <span class="pill pill-supabase"><svg viewBox="0 0 24 24" fill="#3ecf8e"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C.111 12.876.706 14.087 1.686 14.087h10.23l.168 8.878c.015.986 1.26 1.409 1.874.637l9.262-11.652c.653-.825.058-2.036-.922-2.036H12.066L11.9 1.036z"/></svg>Supabase</span>
+          <span class="pill pill-neutral"><svg viewBox="0 0 24 24" fill="#a78bfa" style="width:14px;height:14px"><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>SQL</span>
+          <span class="pill pill-neutral">Modelagem ER</span>
+          <span class="pill pill-neutral">Normalização</span>
+        </div>
       </div>
+
+      <!-- Cloud & Deploy -->
       <div class="skill-card">
-        <span class="skill-icon">🎨</span>
-        <div class="skill-name">UX / UI Design</div>
-        <div class="skill-desc">Prototipação, hierarquia visual e design de interfaces centradas no usuário.</div>
-        <div class="skill-pills"><span class="pill">Figma</span><span class="pill">Canva</span><span class="pill">Adobe</span><span class="pill">Protótipo</span></div>
+        <div class="skill-header">
+          <span class="skill-icon">☁️</span>
+          <div class="skill-name">Cloud & Deploy</div>
+        </div>
+        <div class="skill-desc">Upload e gestão de arquivos com AWS S3. Deploy de frontend no Vercel e backend no Fly.io. CI/CD automático via GitHub.</div>
+        <div class="skill-pills">
+          <span class="pill pill-aws"><svg viewBox="0 0 24 24" fill="#ff9900"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.19.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.15.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.161-.104.265-.168.313a.435.435 0 0 1-.303.08h-.687c-.151 0-.255-.025-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.991.44 1.246.767.254.328.383.702.383 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167z"/></svg>AWS S3</span>
+          <span class="pill pill-vercel"><svg viewBox="0 0 24 24" fill="#d4d4d4"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg>Vercel</span>
+          <span class="pill pill-flyio"><svg viewBox="0 0 24 24" fill="#9f7aea"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.18L18 8v8l-6 3.82L6 16V8l6-3.82zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>Fly.io</span>
+          <span class="pill pill-github"><svg viewBox="0 0 24 24" fill="#c9c9c9"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>GitHub CI/CD</span>
+        </div>
       </div>
+
+      <!-- IA Generativa -->
       <div class="skill-card">
-        <span class="skill-icon">📊</span>
-        <div class="skill-name">Análise & Gestão</div>
-        <div class="skill-desc">Fluxogramas, casos de uso, engenharia de software e gestão de demandas e prioridades.</div>
-        <div class="skill-pills"><span class="pill">Fluxograma</span><span class="pill">Casos de Uso</span><span class="pill">Office</span><span class="pill">IA</span></div>
+        <div class="skill-header">
+          <span class="skill-icon">🤖</span>
+          <div class="skill-name">IA Generativa & APIs</div>
+        </div>
+        <div class="skill-desc">Integração com LLMs via Groq API. Fallback automático entre modelos sem interrupção de serviço. Agentes contextuais para geração de conteúdo narrativo em tempo real.</div>
+        <div class="skill-pills">
+          <span class="pill pill-groq"><svg viewBox="0 0 24 24" fill="#aaaaaa"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>Groq API</span>
+          <span class="pill pill-llm"><svg viewBox="0 0 24 24" fill="#a78bfa"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>LLM Agents</span>
+          <span class="pill pill-node"><svg viewBox="0 0 24 24" fill="#68a063"><path d="M11.998.016C5.37.016 0 5.385 0 12.014c0 6.627 5.37 11.998 11.998 11.998 6.628 0 12.002-5.37 12.002-11.998C24 5.385 18.626.016 11.998.016zm4.718 16.001a.668.668 0 0 1-.668.668c-.185 0-.36-.077-.484-.21l-3.575-3.93-3.573 3.93a.664.664 0 0 1-.484.21.668.668 0 0 1-.668-.668V8.649c0-.369.3-.668.668-.668.37 0 .668.299.668.668v5.36l3.389-3.73a.662.662 0 0 1 .498-.226c.19 0 .365.08.491.22l3.389 3.73v-5.36c0-.369.3-.668.668-.668.37 0 .668.299.668.668l.013 7.378z"/></svg>Node.js</span>
+          <span class="pill pill-ts"><svg viewBox="0 0 24 24" fill="#3178c6"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.232c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>TypeScript</span>
+        </div>
       </div>
+
+      <!-- Web & UI -->
       <div class="skill-card">
-        <span class="skill-icon">🔐</span>
-        <div class="skill-name">Segurança & Redes</div>
-        <div class="skill-desc">Noções de cibersegurança, boas práticas e fundamentos de redes de computadores.</div>
-        <div class="skill-pills"><span class="pill">Cybersecurity</span><span class="pill">CISCO</span><span class="pill">Python</span></div>
+        <div class="skill-header">
+          <span class="skill-icon">🌐</span>
+          <div class="skill-name">Web & UI Design</div>
+        </div>
+        <div class="skill-desc">HTML semântico, CSS avançado, JavaScript vanilla. Prototipação e design de interfaces responsivas com Figma, centradas na experiência do usuário.</div>
+        <div class="skill-pills">
+          <span class="pill pill-html"><svg viewBox="0 0 24 24" fill="#e44d26"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>HTML5</span>
+          <span class="pill pill-css"><svg viewBox="0 0 24 24" fill="#4b78e0"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>CSS3</span>
+          <span class="pill pill-js"><svg viewBox="0 0 24 24" fill="#e8d44d"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>JavaScript</span>
+          <span class="pill pill-figma"><svg viewBox="0 0 24 24" fill="#f24e1e"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.026-4.49 4.515-4.49c2.489 0 4.515 2.014 4.515 4.49S10.661 24 8.172 24zm0-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019zm7.043 7.509h-.065c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.065c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.065-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.065c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.065z"/></svg>Figma</span>
+        </div>
       </div>
+
+      <!-- Segurança -->
       <div class="skill-card">
-        <span class="skill-icon">🤝</span>
-        <div class="skill-name">Soft Skills</div>
-        <div class="skill-desc">Comunicação clara, organização, suporte administrativo e gestão de cronogramas em equipe.</div>
-        <div class="skill-pills"><span class="pill">Comunicação</span><span class="pill">Organização</span><span class="pill">Equipe</span></div>
+        <div class="skill-header">
+          <span class="skill-icon">🔐</span>
+          <div class="skill-name">Segurança & Redes</div>
+        </div>
+        <div class="skill-desc">Fundamentos de cibersegurança, boas práticas de autenticação e autorização. Noções de infraestrutura de redes pelo programa CISCO NetAcad.</div>
+        <div class="skill-pills">
+          <span class="pill pill-cisco"><svg viewBox="0 0 24 24" fill="#1ba0d7"><path d="M1 9h2v6H1V9zm4-3h2v12H5V6zm4-3h2v18H9V3zm4 3h2v12h-2V6zm4 3h2v6h-2V9z"/></svg>CISCO NetAcad</span>
+          <span class="pill pill-python"><svg viewBox="0 0 24 24" fill="#4b8bbe"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05L0 11.97l.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python</span>
+          <span class="pill pill-jwt"><svg viewBox="0 0 24 24" fill="#d63aff"><path d="M10.337 2.126L9.005 6.68H6.344l2.26 1.597-.87 3.458 2.603-1.71 2.604 1.71-.87-3.458 2.26-1.597h-2.66L10.337 2.126zM10.337 21.874l-1.332-4.555H6.344l2.26-1.597-.87-3.458 2.603 1.71 2.604-1.71-.87 3.458 2.26 1.597h-2.66l-1.334 4.555zM2.126 13.663L6.68 14.995V17.656l1.597-2.26 3.458.87-1.71-2.603 1.71-2.604-3.458.87-1.597-2.26v2.66L2.126 13.663zM21.874 10.337l-4.555 1.332V14.33l-1.597-2.26-3.458.87 1.71-2.603-1.71-2.604 3.458.87 1.597-2.26v2.66l4.555 1.334z"/></svg>JWT / Auth</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -456,7 +542,6 @@
     <p class="section-desc">Projetos desenvolvidos durante minha formação. Em constante expansão.</p>
     <div class="projects-grid reveal">
 
-      <!-- LOREKEEPER — card destaque, ocupa linha inteira -->
       <div class="project-card featured">
         <div class="featured-left">
           <div class="featured-badge">
@@ -482,7 +567,7 @@
             </div>
           </div>
           <div style="display:flex; gap:1rem; align-items:center; margin-top:1.4rem;">
-            <a href="https://lorekeeperfg.vercel.app/dashboard" target="_blank" class="featured-link-primary">
+            <a href="https://lorekeeperfg.vercel.app/" target="_blank" class="featured-link-primary">
               Ver demo →
             </a>
             <a href="https://github.com/gasperinifr/lorekeeper" target="_blank" class="featured-link-secondary">
@@ -534,7 +619,6 @@
         </div>
       </div>
 
-      <!-- EcoPraia -->
       <div class="project-card">
         <div class="project-type">Projeto em Equipe · 2024</div>
         <div class="project-title">EcoPraia</div>
@@ -545,10 +629,9 @@
         </div>
       </div>
 
-      <!-- Portfólio Escolar -->
       <div class="project-card">
         <div class="project-type">Portfólio Técnico · 2022–2024</div>
-        <div class="project-title">Portfólio Escolar</div>
+        <div class="project-title">Portfólio Técnico em ADS</div>
         <div class="project-desc">Registro de atividades e projetos desenvolvidos ao longo do Técnico em ADS. Inclui trabalhos em BD, Modelagem de Sistemas, Programação e Desenvolvimento Web.</div>
         <div class="project-footer">
           <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">Portfólio</span></div>
