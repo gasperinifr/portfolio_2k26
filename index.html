@@ -805,7 +805,7 @@
       <div class="contact-info">
         <p>Estou aberto a oportunidades, colaborações e conversas sobre tecnologia, dados e desenvolvimento. Pode entrar em contato por qualquer canal.</p>
         <div class="contact-links">
-          <a href="mailto:franciscogasperini@gmail.com" class="contact-link">
+          <a href="https://mail.google.com/mail/?view=cm&to=franciscogasperini@gmail.com" target="_blank" class="contact-link">
             <div class="contact-link-icon">✉️</div>
             franciscogasperini@gmail.com
           </a>
@@ -822,15 +822,15 @@
       <form class="contact-form" action="https://formspree.io/f/mgorjabl" method="POST" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label class="form-label">Nome</label>
-          <input type="text" class="form-input" placeholder="Seu nome" required>
+          <input type="text" name="name" class="form-input" placeholder="Seu nome" required>
         </div>
         <div class="form-group">
           <label class="form-label">E-mail</label>
-          <input type="email" class="form-input" placeholder="seu@email.com" required>
+          <input type="email" name="email" class="form-input" placeholder="seu@email.com" required>
         </div>
         <div class="form-group">
           <label class="form-label">Mensagem</label>
-          <textarea class="form-textarea" placeholder="Sua mensagem..." required></textarea>
+          <textarea name="message" class="form-textarea" placeholder="Sua mensagem..." required></textarea>
         </div>
         <button type="submit" class="form-btn">Enviar mensagem</button>
       </form>
