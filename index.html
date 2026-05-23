@@ -21,7 +21,6 @@
   html { scroll-behavior:smooth; }
   body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; overflow-x:hidden; }
 
-  /* NAV */
   nav {
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; justify-content:space-between; align-items:center;
@@ -35,7 +34,6 @@
   .nav-links a { color:var(--muted); text-decoration:none; font-size:0.875rem; letter-spacing:0.03em; transition:color 0.2s; }
   .nav-links a:hover { color:var(--white); }
 
-  /* HERO */
   #hero {
     min-height:100vh; display:flex; align-items:center; justify-content:center;
     position:relative; overflow:hidden; padding:6rem 2rem 4rem;
@@ -91,16 +89,14 @@
   .scroll-hint { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:0.5rem; color:var(--muted); font-size:0.75rem; letter-spacing:0.08em; animation:fadeUp 0.6s 0.6s ease both; }
   .scroll-line { width:1px; height:40px; background:linear-gradient(to bottom, var(--accent), transparent); animation:scrollPulse 2s ease-in-out infinite; }
 
-  /* SECTIONS */
   section { padding:6rem 2rem; }
   .container { max-width:960px; margin:0 auto; }
   .section-label { display:flex; align-items:center; gap:0.8rem; margin-bottom:0.8rem; }
   .section-label span { font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); font-weight:600; }
   .section-label::after { content:''; flex:1; height:1px; background:linear-gradient(to right, var(--border), transparent); }
   .section-title { font-size:clamp(1.8rem,4vw,2.5rem); font-weight:700; color:var(--white); line-height:1.2; letter-spacing:-0.02em; margin-bottom:1rem; }
-  .section-desc { color:var(--muted); font-size:0.95rem; line-height:1.7; max-width:580px; }
+  .section-desc { color:var(--muted); font-size:0.95rem; line-height:1.7; max-width:100%; }
 
-  /* ABOUT */
   #sobre { background:var(--bg2); }
   .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; margin-top:3rem; }
   .about-text p { color:var(--muted); line-height:1.8; font-size:0.95rem; margin-bottom:1rem; }
@@ -115,7 +111,6 @@
   .stat-num span { color:var(--accent); }
   .stat-label { font-size:0.78rem; color:var(--muted); margin-top:0.4rem; text-transform:uppercase; letter-spacing:0.06em; }
 
-  /* SKILLS — updated */
   #habilidades { background:var(--bg); }
   .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.4rem; margin-top:3rem; }
   .skill-card { background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:2rem; display:flex; flex-direction:column; gap:1.1rem; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s; cursor:default; }
@@ -151,8 +146,12 @@
   .pill-figma    { background:#1a0d10; color:#f24e1e; border-color:#f24e1e30; }
   .pill-cisco    { background:#001224; color:#1ba0d7; border-color:#1ba0d730; }
   .pill-python   { background:#0a1520; color:#4b8bbe; border-color:#4b8bbe30; }
+  .pill-fastapi  { background:#032220; color:#009688; border-color:#00968830; }
+  .pill-redis    { background:#1a0a08; color:#dc382d; border-color:#dc382d30; }
+  .pill-recharts { background:#0d1a1f; color:#22b5bf; border-color:#22b5bf30; }
+  .pill-pwa      { background:#1a0d2e; color:#8b5cf6; border-color:#8b5cf630; }
+  .pill-gcal     { background:#0a1520; color:#4285f4; border-color:#4285f430; }
 
-  /* EXPERIENCE */
   #experiencia { background:var(--bg2); }
   .exp-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:2rem; margin-top:2rem; transition:border-color 0.3s; }
   .exp-card:hover { border-color:rgba(124,106,247,0.3); }
@@ -164,7 +163,6 @@
   .exp-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.2rem; }
   .exp-tag { background:var(--bg); border:1px solid var(--border); color:var(--muted); font-size:0.7rem; padding:0.2rem 0.55rem; border-radius:999px; }
 
-  /* PROJECTS */
   #projetos { background:var(--bg); }
   .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:3rem; }
   .project-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.8rem; display:flex; flex-direction:column; transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s; position:relative; overflow:hidden; }
@@ -181,7 +179,6 @@
   .project-link:hover { color:var(--white); }
   .project-links { display:flex; gap:1rem; align-items:center; }
 
-  /* Card destaque do Lorekeeper */
   .project-card.featured {
     grid-column: 1 / -1;
     display:grid;
@@ -240,7 +237,6 @@
     margin-top:0.45rem; flex-shrink:0; opacity:0.7;
   }
 
-  /* CERTS */
   #certificados { background:var(--bg2); }
   .certs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:3rem; }
   .cert-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.4rem; transition:border-color 0.3s,transform 0.3s; }
@@ -250,7 +246,6 @@
   .cert-date { font-size:0.75rem; color:var(--muted); }
   .cert-highlight { font-size:0.78rem; color:var(--accent2); margin-top:0.4rem; font-weight:500; }
 
-  /* FORMATION */
   #formacao { background:var(--bg); }
   .formation-list { margin-top:3rem; display:flex; flex-direction:column; }
   .formation-item { display:flex; gap:2rem; align-items:flex-start; padding:2rem 0; border-bottom:1px solid var(--border); transition:padding-left 0.3s; }
@@ -261,7 +256,6 @@
   .f-title { font-size:1rem; font-weight:700; color:var(--white); margin-bottom:0.4rem; }
   .f-desc { font-size:0.83rem; color:var(--muted); line-height:1.6; }
 
-  /* IDIOMAS */
   .lang-row { display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap; }
   .lang-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.2rem 1.6rem; display:flex; align-items:center; gap:1rem; transition:border-color 0.3s; }
   .lang-card:hover { border-color:var(--accent); }
@@ -270,7 +264,6 @@
   .lang-level { font-size:0.75rem; color:var(--muted); }
   .lang-badge { font-size:0.7rem; color:var(--accent2); background:var(--accent-glow); border:1px solid rgba(124,106,247,0.2); padding:0.15rem 0.5rem; border-radius:999px; margin-top:0.2rem; display:inline-block; }
 
-  /* CONTACT */
   #contato { background:var(--bg2); }
   .contact-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:3rem; align-items:start; }
   .contact-info p { color:var(--muted); font-size:0.9rem; line-height:1.7; margin-bottom:2rem; }
@@ -288,11 +281,9 @@
   .form-btn { background:var(--accent); color:#fff; border:none; cursor:pointer; padding:0.85rem 1.5rem; border-radius:8px; font-size:0.9rem; font-weight:600; font-family:inherit; transition:opacity 0.2s,transform 0.2s; box-shadow:0 0 20px rgba(124,106,247,0.25); }
   .form-btn:hover { opacity:0.85; transform:translateY(-1px); }
 
-  /* FOOTER */
   footer { padding:2rem 3rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.78rem; }
   footer span { color:var(--accent); }
 
-  /* ANIMATIONS */
   @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
   @keyframes scrollPulse { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
   .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
@@ -315,7 +306,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">fg<span>.</span></div>
   <ul class="nav-links">
@@ -328,7 +318,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -361,7 +350,6 @@
   <div class="scroll-hint"><div class="scroll-line"></div>scroll</div>
 </section>
 
-<!-- SOBRE -->
 <section id="sobre">
   <div class="container">
     <div class="section-label"><span>Sobre mim</span></div>
@@ -369,7 +357,7 @@
     <div class="about-grid reveal">
       <div class="about-text">
         <p>Olá! Sou <strong>Francisco Gasperini</strong>, de Florianópolis/SC. Técnico em Desenvolvimento de Sistemas pelo <strong>SENAI/SC</strong> e atualmente cursando <strong>Gestão da Tecnologia da Informação no IFSC</strong>.</p>
-        <p>Tenho um perfil versátil que transita entre desenvolvimento web, banco de dados e análise de dados — áreas que se complementam na gestão moderna de tecnologia. Meu objetivo é atuar na interseção entre gestão e TI, otimizando fluxos e apoiando decisões estratégicas.</p>
+        <p>Tenho um perfil versátil que transita entre desenvolvimento web, banco de dados e análise de dados, áreas que se complementam na gestão moderna de tecnologia. Meu objetivo é atuar na interseção entre gestão e TI, otimizando fluxos e apoiando decisões estratégicas.</p>
         <p>Fora do código, minha cabeça está em livros, música ou escrevendo. Acredito que uma boa comunicação e cultura são tão importantes quanto um bom algoritmo.</p>
         <div class="about-tags">
           <span class="tag">Tecnologia</span>
@@ -403,15 +391,13 @@
   </div>
 </section>
 
-<!-- HABILIDADES -->
 <section id="habilidades">
   <div class="container">
     <div class="section-label"><span>Habilidades</span></div>
     <h2 class="section-title">O que eu construo</h2>
-    <p class="section-desc">De banco de dados relacional a IA generativa em produção — áreas onde tenho projetos reais rodando.</p>
+    <p class="section-desc">De banco de dados relacional a IA generativa em produção, áreas onde tenho projetos reais rodando.</p>
     <div class="skills-grid reveal">
 
-      <!-- Full-Stack -->
       <div class="skill-card">
         <div class="skill-header">
           <span class="skill-icon">⚙️</span>
@@ -431,7 +417,6 @@
         </div>
       </div>
 
-      <!-- Banco de Dados -->
       <div class="skill-card">
         <div class="skill-header">
           <span class="skill-icon">🗄️</span>
@@ -447,7 +432,6 @@
         </div>
       </div>
 
-      <!-- Cloud & Deploy -->
       <div class="skill-card">
         <div class="skill-header">
           <span class="skill-icon">☁️</span>
@@ -462,20 +446,19 @@
         </div>
       </div>
 
-      <!-- IA Generativa -->
       <div class="skill-card">
         <div class="skill-header">
           <span class="skill-icon">🤖</span>
           <div class="skill-name">IA Generativa & APIs</div>
         </div>
-        <div class="skill-desc">Integração com LLMs via Groq API. Fallback automático entre modelos sem interrupção de serviço. Agentes contextuais para geração de conteúdo narrativo em tempo real.</div>
+        <div class="skill-desc">Integração com LLMs via Groq API. Fallback automático entre modelos sem interrupção de serviço. Agentes contextuais para geração de conteúdo narrativo e pedagógico em tempo real.</div>
         <div class="skill-pills">
           <span class="pill pill-groq"><svg viewBox="0 0 24 24" fill="#aaaaaa"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>Groq API</span>
           <span class="pill pill-llm"><svg viewBox="0 0 24 24" fill="#a78bfa"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>LLM Agents</span>
+          <span class="pill pill-python"><svg viewBox="0 0 24 24" fill="#4b8bbe"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05L0 11.97l.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python / FastAPI</span>
         </div>
       </div>
 
-      <!-- Web & UI -->
       <div class="skill-card">
         <div class="skill-header">
           <span class="skill-icon">🌐</span>
@@ -490,7 +473,6 @@
         </div>
       </div>
 
-      <!-- Segurança -->
       <div class="skill-card">
         <div class="skill-header">
           <span class="skill-icon">🔐</span>
@@ -508,7 +490,6 @@
   </div>
 </section>
 
-<!-- EXPERIÊNCIA -->
 <section id="experiencia">
   <div class="container">
     <div class="section-label"><span>Experiência</span></div>
@@ -537,7 +518,6 @@
   </div>
 </section>
 
-<!-- PROJETOS -->
 <section id="projetos">
   <div class="container">
     <div class="section-label"><span>Projetos</span></div>
@@ -554,10 +534,7 @@
           <div class="project-type">Full-Stack · 2025</div>
           <div class="featured-title">Lorekeeper</div>
           <div class="featured-desc">
-            Plataforma completa para organização de campanhas de RPG de mesa, destinada para mestres e jogadores. Centraliza personagens, 
-            NPCs, locais, itens, eventos e narrativa em um único sistema, com IA generativa integrada para auxílio na criação e organização 
-            de conteúdo, gráfico de relações entre entidades do mundo, chat em tempo real, linha do tempo de eventos e importação de conteúdo
-             oficial de D&D 5e via integração com 5etools.
+            Plataforma completa para organização de campanhas de RPG de mesa, destinada para mestres e jogadores. Centraliza personagens, NPCs, locais, itens, eventos e narrativa em um único sistema, com IA generativa integrada para auxílio na criação e organização de conteúdo, gráfico de relações entre entidades do mundo, chat em tempo real, linha do tempo de eventos e importação de conteúdo oficial de D&D 5e via integração com 5etools.
           </div>
           <div class="featured-footer">
             <div class="featured-tags">
@@ -570,12 +547,8 @@
             </div>
           </div>
           <div style="display:flex; gap:1rem; align-items:center; margin-top:1.4rem;">
-            <a href="https://lorekeeperrpg.vercel.app/" target="_blank" class="featured-link-primary">
-              Ver demo →
-            </a>
-            <a href="https://github.com/gasperinifr/lorekeeper" target="_blank" class="featured-link-secondary">
-              Repositório ↗
-            </a>
+            <a href="https://lorekeeperrpg.vercel.app/" target="_blank" class="featured-link-primary">Ver demo →</a>
+            <a href="https://github.com/gasperinifr/lorekeeper" target="_blank" class="featured-link-secondary">Repositório ↗</a>
           </div>
         </div>
         <div class="featured-right">
@@ -629,9 +602,81 @@
             Em produção · Projeto solo
           </div>
           <div class="project-type">Full-Stack · 2025</div>
+          <div class="featured-title">Lexiona</div>
+          <div class="featured-desc">
+            Plataforma web de planejamento pedagógico inteligente para docentes. Organiza disciplinas, gera cronogramas de aulas, processa ementas em texto, PDF, DOCX ou áudio com IA e ajuda o professor a planejar, acompanhar e replanejar conteúdos durante o período letivo. Integra transcrição de áudio com Whisper, geração de planos de aula com LLMs e sincronização opcional com Google Calendar.
+          </div>
+          <div class="featured-footer">
+            <div class="featured-tags">
+              <span class="featured-tag">React</span>
+              <span class="featured-tag">Vite</span>
+              <span class="featured-tag">FastAPI</span>
+              <span class="featured-tag">Python</span>
+              <span class="featured-tag">Supabase</span>
+              <span class="featured-tag">Groq</span>
+              <span class="featured-tag">Redis</span>
+              <span class="featured-tag">Vercel</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center; margin-top:1.4rem;">
+            <a href="https://lexionabr.vercel.app/" target="_blank" class="featured-link-primary">Ver demo →</a>
+            <a href="https://github.com/gasperinifr/Lexiona" target="_blank" class="featured-link-secondary">Repositório ↗</a>
+          </div>
+        </div>
+        <div class="featured-right">
+          <div class="featured-stat-grid">
+            <div class="featured-stat">
+              <div class="featured-stat-num">PWA<span></span></div>
+              <div class="featured-stat-label">Instalável</div>
+            </div>
+            <div class="featured-stat">
+              <div class="featured-stat-num">3<span>+</span></div>
+              <div class="featured-stat-label">Formatos de ementa</div>
+            </div>
+            <div class="featured-stat">
+              <div class="featured-stat-num">Full<span>-Stack</span></div>
+              <div class="featured-stat-label">React + FastAPI</div>
+            </div>
+            <div class="featured-stat">
+              <div class="featured-stat-num">Solo</div>
+              <div class="featured-stat-label">Projeto individual</div>
+            </div>
+          </div>
+          <div class="featured-highlights">
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              Transcrição de áudio com Groq Whisper para processar ementas por voz
+            </div>
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              Geração automática de planos de aula e replanejamento ao cancelar aulas com conteúdo já atribuído
+            </div>
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              Chat de ajuste contextual para refinar planejamento por disciplina
+            </div>
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              Cache com Redis para agenda, progresso e relatórios; integração opcional com Google Calendar
+            </div>
+            <div class="featured-highlight">
+              <div class="featured-highlight-dot"></div>
+              PWA instalável com atalhos para dashboard e calendário
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card featured">
+        <div class="featured-left">
+          <div class="featured-badge">
+            <div class="featured-badge-dot"></div>
+            Em produção · Projeto solo
+          </div>
+          <div class="project-type">Full-Stack · 2025</div>
           <div class="featured-title">CSVision</div>
           <div class="featured-desc">
-            Plataforma web para análise e visualização de arquivos CSV com IA. Importa qualquer planilha via drag-and-drop, analisa semanticamente as colunas com LLM (Groq) e gera um dashboard interativo com gráficos customizáveis automaticamente. Parser CSV próprio em TypeScript puro, sem bibliotecas externas — os dados são analisados no navegador e apenas metadados chegam ao servidor.
+            Plataforma web para análise e visualização de arquivos CSV com IA. Importa qualquer planilha via drag-and-drop, analisa semanticamente as colunas com LLM (Groq) e gera um dashboard interativo com gráficos customizáveis automaticamente. Parser CSV próprio em TypeScript puro, sem bibliotecas externas. Os dados são analisados no navegador e apenas metadados chegam ao servidor.
           </div>
           <div class="featured-footer">
             <div class="featured-tags">
@@ -644,12 +689,8 @@
             </div>
           </div>
           <div style="display:flex; gap:1rem; align-items:center; margin-top:1.4rem;">
-            <a href="https://csvisionboard.vercel.app" target="_blank" class="featured-link-primary">
-              Ver demo →
-            </a>
-            <a href="https://github.com/gasperinifr/csvision" target="_blank" class="featured-link-secondary">
-              Repositório ↗
-            </a>
+            <a href="https://csvisionboard.vercel.app" target="_blank" class="featured-link-primary">Ver demo →</a>
+            <a href="https://github.com/gasperinifr/csvision" target="_blank" class="featured-link-secondary">Repositório ↗</a>
           </div>
         </div>
         <div class="featured-right">
@@ -674,7 +715,7 @@
           <div class="featured-highlights">
             <div class="featured-highlight">
               <div class="featured-highlight-dot"></div>
-              Parser RFC 4180 do zero — detecção automática de tipos (string, number, date, email, boolean)
+              Parser RFC 4180 do zero com detecção automática de tipos (string, number, date, email, boolean)
             </div>
             <div class="featured-highlight">
               <div class="featured-highlight-dot"></div>
@@ -690,7 +731,7 @@
             </div>
             <div class="featured-highlight">
               <div class="featured-highlight-dot"></div>
-              Dados nunca saem do navegador durante a análise — só metadados vão ao servidor
+              Dados nunca saem do navegador durante a análise, só metadados vão ao servidor
             </div>
           </div>
         </div>
@@ -720,7 +761,6 @@
   </div>
 </section>
 
-<!-- CERTIFICADOS -->
 <section id="certificados">
   <div class="container">
     <div class="section-label"><span>Certificados</span></div>
@@ -770,7 +810,6 @@
   </div>
 </section>
 
-<!-- FORMAÇÃO -->
 <section id="formacao">
   <div class="container">
     <div class="section-label"><span>Formação</span></div>
@@ -796,7 +835,6 @@
   </div>
 </section>
 
-<!-- CONTATO -->
 <section id="contato">
   <div class="container">
     <div class="section-label"><span>Contato</span></div>
@@ -838,7 +876,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div>Francisco <span>Gasperini</span> · Florianópolis, SC</div>
   <div>franciscogasperini@gmail.com</div>
