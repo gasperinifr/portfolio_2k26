@@ -21,6 +21,23 @@
   html { scroll-behavior:smooth; }
   body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; overflow-x:hidden; }
 
+  .lang-toggle {
+    position:fixed; bottom:1.8rem; right:1.8rem; z-index:200;
+    display:flex; align-items:center; gap:0; border-radius:999px;
+    overflow:hidden; border:1px solid var(--border);
+    box-shadow:0 4px 24px rgba(0,0,0,0.4); backdrop-filter:blur(12px);
+  }
+  .lang-toggle a {
+    display:flex; align-items:center; padding:0.45rem 0.9rem;
+    font-size:0.75rem; font-weight:700; letter-spacing:0.08em;
+    text-decoration:none; transition:background 0.2s,color 0.2s;
+    background:var(--surface); color:var(--muted);
+  }
+  .lang-toggle a.active {
+    background:var(--accent); color:#fff;
+  }
+  .lang-toggle a:hover:not(.active) { color:var(--white); }
+
   nav {
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; justify-content:space-between; align-items:center;
@@ -296,8 +313,11 @@
     footer { flex-direction:column; gap:0.5rem; text-align:center; }
     .project-card.featured { grid-template-columns:1fr; }
     .featured-stat-grid { grid-template-columns:repeat(2,1fr); }
+    .lang-toggle { bottom:1rem; right:1rem; }
   }
 </style>
+<link rel="alternate" hreflang="pt-BR" href="./index.html" />
+<link rel="alternate" hreflang="en" href="./en.html" />
 <link rel="icon" type="image/png" href="./portfolio_tecnico/favicon/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="./portfolio_tecnico/favicon/favicon.svg" />
 <link rel="shortcut icon" href="./portfolio_tecnico/favicon/favicon.ico" />
@@ -305,6 +325,11 @@
 <link rel="manifest" href="./portfolio_tecnico/favicon/site.webmanifest" />
 </head>
 <body>
+
+<div class="lang-toggle" aria-label="Selecionar idioma">
+  <a href="./index.html" class="active" data-lang-link="pt" aria-current="page">PT</a>
+  <a href="./en.html" data-lang-link="en">EN</a>
+</div>
 
 <nav>
   <div class="nav-logo">fg<span>.</span></div>
@@ -890,6 +915,12 @@
 
   document.querySelectorAll('.skills-grid,.projects-grid,.about-stats,.certs-grid').forEach(grid => {
     [...grid.children].forEach((child,i) => { child.style.transitionDelay = `${i*0.07}s`; });
+  });
+
+  document.querySelectorAll('[data-lang-link]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.location.hash) link.href = `${link.getAttribute('href').split('#')[0]}${window.location.hash}`;
+    });
   });
 
   async function handleSubmit(e) {
