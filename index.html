@@ -8,10 +8,10 @@
 <meta property="og:title" content="Francisco Gasperini — Desenvolvedor full-stack e analista de dados">
 <meta property="og:description" content="Três projetos em produção. TypeScript, React, Node.js e PostgreSQL, do modelo de dados ao deploy.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://portfolio2k26fg.vercel.app/">
+<meta property="og:url" content="https://gasperini.dev.br/">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://portfolio2k26fg.vercel.app/" />
+<link rel="canonical" href="https://gasperini.dev.br/" />
 <link rel="alternate" hreflang="pt-BR" href="./index.html" />
 <link rel="alternate" hreflang="en" href="./en.html" />
 <link rel="icon" type="image/png" href="./portfolio_tecnico/favicon/favicon-96x96.png" sizes="96x96" />
@@ -60,6 +60,7 @@ p{margin:0}
 .cabeca h2{font-size:clamp(34px,4.6vw,52px);color:var(--navy-3);margin-top:8px}
 .cabeca .sub{font-size:16.5px;color:var(--texto);margin-top:12px;max-width:640px}
 .it{font-style:italic}
+.linha-nova{display:block}
 
 /* ---------- topo ---------- */
 .topo{position:sticky;top:0;z-index:60;background:var(--navy);border-bottom:1px solid rgb(255 255 255 / 12%)}
@@ -195,7 +196,7 @@ p{margin:0}
 .campo input,.campo textarea{width:100%;padding:12px 14px;border-radius:7px;border:1px solid rgb(255 255 255 / 20%);background:rgb(255 255 255 / 6%);color:#fff;font-family:var(--sans);font-size:15px;transition:border-color .15s ease,background .15s ease}
 .campo input::placeholder,.campo textarea::placeholder{color:rgb(255 255 255 / 42%)}
 .campo input:focus,.campo textarea:focus{outline:none;border-color:var(--azul-300);background:rgb(255 255 255 / 10%)}
-.campo textarea{min-height:118px;resize:vertical}
+.campo textarea{min-height:96px;resize:vertical}
 .form-btn{width:100%;padding:14px;border-radius:7px;border:none;background:#fff;color:var(--navy);font-family:var(--sans);font-size:15px;font-weight:700;cursor:pointer;transition:opacity .15s ease}
 .form-btn:hover{opacity:.9}
 .form-btn:disabled{cursor:default;opacity:.75}
@@ -675,7 +676,7 @@ p{margin:0}
     <div class="cabeca rv">
       <div class="rotulo rotulo-claro">Contato</div>
       <h2>Vamos <span class="it">conversar</span></h2>
-      <p class="sub">Estou aberto a oportunidades em desenvolvimento e dados. Pode chamar por qualquer canal.</p>
+      <p class="sub">Estou aberto a oportunidades em desenvolvimento e dados.<span class="linha-nova">Pode chamar por qualquer canal.</span></p>
     </div>
     <div class="contato-in">
       <div class="rv">
@@ -693,7 +694,11 @@ p{margin:0}
         </a>
         <a class="canal" href="./assets/curriculo-francisco-gasperini-ptbr.pdf" download>
           <span class="canal-ic"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="#93AEE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v8M4.8 7.6L8 10.8l3.2-3.2M2.8 13.2h10.4"/></svg></span>
-          <span><span class="canal-t">Currículo</span><br><span class="canal-v">PDF, versão em português</span></span>
+          <span><span class="canal-t">Currículo · PT</span><br><span class="canal-v">Versão em português (PDF)</span></span>
+        </a>
+        <a class="canal" href="./assets/curriculo-francisco-gasperini-en.pdf" download>
+          <span class="canal-ic"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="#93AEE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v8M4.8 7.6L8 10.8l3.2-3.2M2.8 13.2h10.4"/></svg></span>
+          <span><span class="canal-t">Currículo · EN</span><br><span class="canal-v">Versão em inglês (PDF)</span></span>
         </a>
       </div>
       <form class="form rv" action="https://formspree.io/f/mgorjabl" method="POST" onsubmit="handleSubmit(event)">
